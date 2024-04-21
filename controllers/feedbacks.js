@@ -22,6 +22,12 @@ exports.addFeedback = async(req, res, next) => {
         req.body.promotion = req.params.id;
         req.body.user = req.user.id;
         const feedback = await Feedback.create(req.body);
+        promo.ratingCount = promo.ratingCount + 1;
+        promo.ratingSum = promo.ratingSum + req.body.rating;
+        await Promotion.findByIdAndUpdate(promo.id, promo, {
+          new: true,
+          runValidators: true
+        });
         res.status(201).json({
             success: true,
             data: feedback,
@@ -95,7 +101,10 @@ exports.updateFeedback = async(req, res, next) => {
     }
 }
 
-
+/**
+ * Format for request
+ * DELETE  {{URL}}/api/v1/feedbacks/{{feedbackID}}
+ */
 //For delete feedback, user can only delete their own feedback. Admin can delete any feedback.
 exports.deleteFeedback = async (req, res, next) => {
     try {
@@ -117,6 +126,13 @@ exports.deleteFeedback = async (req, res, next) => {
       }
   
       await feedback.deleteOne();
+      const promo = await Promotion.findById(feedback.promotion);
+      promo.ratingCount = promo.ratingCount - 1;
+      promo.ratingSum = promo.ratingSum - feedback.rating;
+      await Promotion.findByIdAndUpdate(promo.id, promo, {
+        new: true,
+        runValidators: true
+      });
   
       res.status(200).json({
         success: true,

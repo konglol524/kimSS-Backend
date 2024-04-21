@@ -21,8 +21,19 @@ const PromotionSchema = new mongoose.Schema({
     promoNum: {
         type:Number,
         default:0
-    }
+    },
     //maybe use this for the percentage of discount or cash value of discount
+    ratingCount: {
+        type:Number,
+        default:0
+    },
+    ratingSum: {
+        type:Number,
+        default:0
+    }
+    //Everytime feedback is added, the rating gets added to
+    //the rating Sum and the rating is count is increased by 1
+    //you can find avg rating by ratingSum / ratingCount
 });
 
 module.exports = mongoose.model("Promotion", PromotionSchema);

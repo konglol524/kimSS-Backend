@@ -17,7 +17,6 @@ exports.getPromotions = async(req, res, next) => {
     }
 }
 
-
 //get single promotion using promotion's ID
 /*
 Format for request
@@ -32,7 +31,6 @@ exports.getPromotion = async(req, res, next) => {
         return res.status(500).json({success: false, message: "can not get promotion"});
     }
 }
-
 
 //creating a promotion also updates the shop referenced to include the promotion in it
 /**
