@@ -117,7 +117,7 @@ exports.deleteFeedback = async (req, res, next) => {
         });
       }
   
-      //Make sure user is the booking owner
+      //Make sure user is the feedback's owner
       if (feedback.user.toString() !== req.user.id && req.user.role !== "admin") {
         return res.status(401).json({
           success: false,
