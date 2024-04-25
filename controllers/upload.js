@@ -49,8 +49,8 @@ exports.getProfilePicture = async (req, res, next) => {
 
 exports.getProfilePictureById = async (req, res, next) => {
   try {
-    const { userId } = req.params; // Change this line
-    const pfp = await Profile.findOne({ user: userId }); // Change this line
+    const { userId } = req.params; 
+    const pfp = await Profile.findOne({ user: userId }); 
     if (!pfp) {
       return res.status(404).json({
         success: false,

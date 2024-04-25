@@ -7,6 +7,12 @@ const FeedbackSchema = new mongoose.Schema({
         default: "",
         required: true,
     },
+    username : {
+        type: String,
+        ref: "User",
+        default: "",
+        required: true,
+    },
     promotion: {
         type: mongoose.Schema.ObjectId,
         ref: "Promotion",

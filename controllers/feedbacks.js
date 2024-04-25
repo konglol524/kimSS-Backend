@@ -21,6 +21,7 @@ exports.addFeedback = async(req, res, next) => {
         }
         req.body.promotion = req.params.id;
         req.body.user = req.user.id;
+        req.body.username = req.user.name;
         const feedback = await Feedback.create(req.body);
         res.status(201).json({
             success: true,
