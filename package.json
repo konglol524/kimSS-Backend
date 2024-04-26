@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "test": "jest --collect-coverage"
+    "test": "DOTENV_CONFIG_PATH=./config/config.env jest --collect-coverage --setupFiles=dotenv/config"
   },
   "author": "",
   "license": "MIT",
