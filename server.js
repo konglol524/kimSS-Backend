@@ -7,6 +7,7 @@ const helmet = require("helmet");
 const { xss } = require("express-xss-sanitizer");
 const rateLimit = require("express-rate-limit");
 const { swaggerSpec, swaggerUi } = require("./config/swaggerConfig");
+const path = require('path');
 const hpp = require("hpp");
 
 //Load env vars
@@ -34,7 +35,7 @@ const limiter = rateLimit({
 
 const app = express();
 const cors = require("cors");
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 // app.use(cors({ origin: process.env.FRONTEND_URL }));
 app.use(cors());
 // app.use(cors());
