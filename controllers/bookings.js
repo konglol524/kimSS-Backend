@@ -96,12 +96,13 @@ exports.addBooking = async (req, res, next) => {
     const existedBookings = await Booking.find({ user: req.user.id });
 
     //If the user is not an admin, they can only create 3 bookings.
-    if (existedBookings.length >= 3 && req.user.role !== "admin") {
-      return res.status(400).json({
-        success: false,
-        message: `The user with ID ${req.user.id} has already made 3 bookings`,
-      });
-    }
+    // ขอ test ก่อน ไม่งั้นมันต้องเปลี่ยน account บ่อยเกิน
+    // if (existedBookings.length >= 3 && req.user.role !== "admin") {
+    //   return res.status(400).json({
+    //     success: false,
+    //     message: `The user with ID ${req.user.id} has already made 3 bookings`,
+    //   });
+    // }
 
     const booking = await Booking.create(req.body);
 
