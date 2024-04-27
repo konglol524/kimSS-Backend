@@ -78,7 +78,7 @@ describe('Back end function tests', () => {
         });
 
         describe('given the promoID is not an object id', () => {
-            it('should error and return 500', async ()=>{
+            it('should return 500', async ()=>{
                 const res = await request(app).get('/api/v1/feedbacks/notId')
                 expect(res.status).toBe(500);
                 console.log(res.body.message);
