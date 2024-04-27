@@ -6,7 +6,8 @@ const mongoSanitize = require("express-mongo-sanitize");
 const helmet = require("helmet");
 const { xss } = require("express-xss-sanitizer");
 const rateLimit = require("express-rate-limit");
-const { swaggerSpec, swaggerUi } = require("./config/swaggerConfig");
+const swaggerUi= require("swagger-ui-express");
+const swagger = require('./config/swaggerConfig')
 const path = require('path');
 const hpp = require("hpp");
 
@@ -54,7 +55,7 @@ app.use(limiter);
 //Prevent http param pollutions
 app.use(hpp());
 //Swagger
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use("/api-docs", swaggerUi.serve, swagger);
 
 app.use("/api/v1/rentals", rentals);
 app.use("/api/v1/auth", auth);

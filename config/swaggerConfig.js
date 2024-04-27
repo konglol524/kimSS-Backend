@@ -33,12 +33,17 @@ const swaggerDefinition = {
     ],
 };
 
-const options = {
+const swaggerOptions = {
     swaggerDefinition,
     // Paths to files containing OpenAPI definitions
     apis: ['routes/*.js'],
 };
 
-const swaggerSpec = swaggerJSDoc(options);
+const options = {
+    customCss: '.swagger-ui .topbar { display: none }'
+}
 
-module.exports = { swaggerSpec, swaggerUi };
+const swaggerDocs = swaggerJSDoc(swaggerOptions);
+
+// module.exports = { swaggerSpec, swaggerUi };
+module.exports = swaggerUi.setup(swaggerDocs, options);
