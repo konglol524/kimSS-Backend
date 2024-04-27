@@ -9,7 +9,7 @@ const swaggerDefinition = {
     },
     servers: [
         {
-            url: process.env.HOST + process.env.PORT,
+            url: "http://localhost:8000",
             description: 'Development server',
         },
         {
