@@ -46,3 +46,23 @@ exports.getProfilePicture = async (req, res, next) => {
     res.status(400).json({success: false, message: error.message});
   }
 }
+
+exports.getProfilePictureById = async (req, res, next) => {
+  try {
+    const { userId } = req.params; // Change this line
+    const pfp = await Profile.findOne({ user: userId }); // Change this line
+    if (!pfp) {
+      return res.status(404).json({
+        success: false,
+        message: `No profile picture found for user with ID ${userId}`,
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: pfp.profilePic,
+    });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};

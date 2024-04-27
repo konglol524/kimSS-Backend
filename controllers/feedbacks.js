@@ -21,9 +21,10 @@ exports.addFeedback = async(req, res, next) => {
         }
         req.body.promotion = req.params.id;
         req.body.user = req.user.id;
+        req.body.username = req.user.name;
         const feedback = await Feedback.create(req.body);
         promo.ratingCount = promo.ratingCount + 1;
-        promo.ratingSum = promo.ratingSum + req.body.rating;
+        promo.ratingSum = promo.ratingSum + parseInt(req.body.rating);
         await Promotion.findByIdAndUpdate(promo.id, promo, {
           new: true,
           runValidators: true
@@ -84,14 +85,25 @@ exports.updateFeedback = async(req, res, next) => {
               message: `User ${req.user.id} is not authorized to update this feedback`,
             });
         }
-
+        let oldRating = feedback.rating;
+        let newRating = parseInt(req.body.rating);
         let newFeedback = feedback;
         newFeedback.comment = req.body.comment;
-        newFeedback.rating = req.body.rating;
+        newFeedback.rating = newRating;
 
-        feedback = await Feedback.findByIdAndUpdate(req.params.id, newFeedback, {
+        await Feedback.findByIdAndUpdate(req.params.id, newFeedback, {
             new: true,
             runValidators: true,
+          });
+
+          const promo = await Promotion.findById(feedback.promotion);
+          promo.ratingSum = promo.ratingSum - oldRating + newRating;
+          console.log(promo.ratingSum);
+          console.log(oldRating);
+          console.log(newRating);
+          await Promotion.findByIdAndUpdate(promo.id, promo, {
+            new: true,
+            runValidators: true
           });
 
         res.status(200).json({success:true, data:feedback});
@@ -117,7 +129,7 @@ exports.deleteFeedback = async (req, res, next) => {
         });
       }
   
-      //Make sure user is the booking owner
+      //Make sure user is the feedback's owner
       if (feedback.user.toString() !== req.user.id && req.user.role !== "admin") {
         return res.status(401).json({
           success: false,

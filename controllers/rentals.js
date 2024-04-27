@@ -21,7 +21,7 @@ exports.getRentals= async (req, res, next) => {
         queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match=>`$${match}`);
 
         //finding resource,
-        query = Rental.find(JSON.parse(queryStr));
+        query = Rental.find(JSON.parse(queryStr)).populate('populatedPromotions');
         // .populate('bookings');
        
         //Select Fields
@@ -63,7 +63,7 @@ exports.getRentals= async (req, res, next) => {
 
 exports.getRental= async (req, res, next) => {
     try{
-        const rental = await Rental.findById(req.params.id);
+        const rental = await Rental.findById(req.params.id).populate('populatedPromotions');
        
         if(!rental){
             return res.status(400).json({success:false});
