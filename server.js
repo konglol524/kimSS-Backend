@@ -52,7 +52,7 @@ app.use(limiter);
 //Prevent http param pollutions
 app.use(hpp());
 //Swagger
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use("/api/v1/rentals", rentals);
 app.use("/api/v1/auth", auth);
