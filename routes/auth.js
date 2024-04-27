@@ -147,7 +147,7 @@ module.exports = router;
 
 /**
  * @swagger
- * /auth/me:
+ * /api/v1/auth/me:
  *   get:
  *     summary: Get current user details
  *     tags: [Authorization]
@@ -175,7 +175,7 @@ module.exports = router;
 
 /**
  * @swagger
- * /auth/logout:
+ * /api/v1/auth/logout:
  *   get:
  *     summary: Log out user
  *     tags: [Authorization]
@@ -199,7 +199,7 @@ module.exports = router;
 
 /**
  * @swagger
- * /auth/users/{id}:
+ * /api/v1/auth/users/{id}:
  *   delete:
  *     summary: Delete user
  *     tags: [Authorization]
