@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1714199852614" clover="3.2.0">
-  <project timestamp="1714199852614" name="All files">
+<coverage generated="1714294655614" clover="3.2.0">
+  <project timestamp="1714294655614" name="All files">
     <metrics statements="74" coveredstatements="66" conditionals="12" coveredconditionals="10" methods="8" coveredmethods="4" elements="94" coveredelements="80" complexity="0" loc="74" ncloc="74" packages="3" files="8" classes="8"/>
     <package name="middleware">
       <metrics statements="19" coveredstatements="13" conditionals="10" coveredconditionals="8" methods="3" coveredmethods="1"/>
-      <file name="auth.js" path="/Users/kongmac/Desktop/SE Project/kimSS-Backend/middleware/auth.js">
+      <file name="auth.js" path="C:\Users\kongbhumi\Desktop\SE\project\backend\middleware\auth.js">
         <metrics statements="19" coveredstatements="13" conditionals="10" coveredconditionals="8" methods="3" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -29,25 +29,25 @@
     </package>
     <package name="models">
       <metrics statements="22" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
-      <file name="Booking.js" path="/Users/kongmac/Desktop/SE Project/kimSS-Backend/models/Booking.js">
+      <file name="Booking.js" path="C:\Users\kongbhumi\Desktop\SE\project\backend\models\Booking.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="44" count="1" type="stmt"/>
       </file>
-      <file name="Feedback.js" path="/Users/kongmac/Desktop/SE Project/kimSS-Backend/models/Feedback.js">
+      <file name="Feedback.js" path="C:\Users\kongbhumi\Desktop\SE\project\backend\models\Feedback.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
       </file>
-      <file name="Promotion.js" path="/Users/kongmac/Desktop/SE Project/kimSS-Backend/models/Promotion.js">
+      <file name="Promotion.js" path="C:\Users\kongbhumi\Desktop\SE\project\backend\models\Promotion.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="39" count="1" type="stmt"/>
       </file>
-      <file name="User.js" path="/Users/kongmac/Desktop/SE Project/kimSS-Backend/models/User.js">
+      <file name="User.js" path="C:\Users\kongbhumi\Desktop\SE\project\backend\models\User.js">
         <metrics statements="13" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -66,7 +66,7 @@
     </package>
     <package name="test">
       <metrics statements="33" coveredstatements="33" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-      <file name="getFeedbacks.js" path="/Users/kongmac/Desktop/SE Project/kimSS-Backend/test/getFeedbacks.js">
+      <file name="getFeedbacks.js" path="C:\Users\kongbhumi\Desktop\SE\project\backend\test\getFeedbacks.js">
         <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -81,7 +81,7 @@
         <line num="14" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
       </file>
-      <file name="getMe.js" path="/Users/kongmac/Desktop/SE Project/kimSS-Backend/test/getMe.js">
+      <file name="getMe.js" path="C:\Users\kongbhumi\Desktop\SE\project\backend\test\getMe.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -89,7 +89,7 @@
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
       </file>
-      <file name="testServer.js" path="/Users/kongmac/Desktop/SE Project/kimSS-Backend/test/testServer.js">
+      <file name="testServer.js" path="C:\Users\kongbhumi\Desktop\SE\project\backend\test\testServer.js">
         <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>

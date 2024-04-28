@@ -83,16 +83,13 @@ exports.logout = async (req, res, next) => {
 
 exports.deleteUser = async (req, res, next) => {
   try {
+    console.log(`Trying to delete id: ${req.params.id}`);
     const user = await User.findByIdAndDelete(req.params.id);
     if (!user) {
       return res
         .status(400)
         .json({ success: false, message: "Can't find user" });
     }
-    //!Cascade Booking
-    await Booking.deleteMany({ user: user._id });
-    //Casecade Feedback
-    await Feedback.deleteMany({ user: user._id });
 
     res.status(200).json({ success: true, data: {} });
   } catch (err) {

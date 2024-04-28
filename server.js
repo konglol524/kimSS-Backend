@@ -24,6 +24,7 @@ const upload = require("./routes/upload");
 const promotions = require("./routes/promotions");
 const feedbacks = require("./routes/feedbacks");
 
+
 var corsOptions = {
   origin: process.env.HOST,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204

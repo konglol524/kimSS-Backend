@@ -74,6 +74,19 @@ exports.getBooking = async (req, res, next) => {
   }
 };
 
+///POST {{URL}}/api/v1/rentals/{{rentalID}}/bookings/
+//Body
+/*
+{
+    "car" : "Honda Accord",
+    "daySpend": 1,
+    "bookingDate": {{$timestamp}},
+    "cost": 999,
+    "discountPoint":0,
+    "addedPoint": 0
+}
+*/
+
 exports.addBooking = async (req, res, next) => {
   try {
     req.body.rentalProvider = req.params.rentalId;

@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const Booking = require("./Booking");
+const Feedback = require("./Feedback");
 
 const UserSchema = new mongoose.Schema(
   {
@@ -63,5 +64,30 @@ UserSchema.methods.getSignedJwtToken = function () {
 UserSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
+
+UserSchema.pre('findOneAndDelete', async function(next){
+  try {
+      console.log('YOOOOOOo')
+      const filter = this.getFilter();
+      // console.log(filter);
+      const doc = await this.model.findOne(filter); // Execute the query to get the document
+      if (doc) {
+          console.log('Document being deleted:', doc);
+          // Now you can perform any operations you need with the document
+      }
+      //!Cascade Booking
+      await Booking.deleteMany({ user: doc._id });
+      // Booking.deleteMany({ user: this._id });
+      //Casecade Feedback
+      const f2d = await Feedback.findOne({ user: doc._id });
+      console.log(f2d);
+      await Feedback.deleteMany({ user: doc._id });
+      next();
+  } catch (error){
+      console.log(error.stack);
+      next(error);
+  }
+})
+
 
 module.exports = mongoose.model("User", UserSchema);

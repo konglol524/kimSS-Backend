@@ -1,7 +1,5 @@
 const Feedback = require("../models/Feedback");
 const Promotion = require("../models/Promotion");
-
-
 /**
  * Format for request
  * POST  {{URL}}/api/v1/feedbacks/{{promoID}}
@@ -138,13 +136,7 @@ exports.deleteFeedback = async (req, res, next) => {
       }
   
       await feedback.deleteOne();
-      const promo = await Promotion.findById(feedback.promotion);
-      promo.ratingCount = promo.ratingCount - 1;
-      promo.ratingSum = promo.ratingSum - feedback.rating;
-      await Promotion.findByIdAndUpdate(promo.id, promo, {
-        new: true,
-        runValidators: true
-      });
+
   
       res.status(200).json({
         success: true,
