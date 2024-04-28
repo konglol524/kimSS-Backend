@@ -63,4 +63,33 @@ FeedbackSchema.pre('deleteMany', async function (next){
     }
 });
 
+
+FeedbackSchema.pre('deleteOne', async function (next){
+    try {
+        console.log("YOOOO3");
+        const filter = this.getFilter();
+        console.log(filter);
+        const doc = await this.model.findOne(filter); // Execute the query to get the document
+        if (doc) {
+            console.log('Document being deleted:', doc);
+            // Now you can perform any operations you need with the document
+        }
+             const promo = await Promotion.findById(doc.promotion);
+             promo.ratingCount = promo.ratingCount - 1;
+             console.log(promo.ratingCount);
+            promo.ratingSum = promo.ratingSum - parseInt(doc.rating);
+            await Promotion.findByIdAndUpdate(promo.id, promo, {
+            new: true,
+            runValidators: true
+            });
+
+        
+        next();
+    } catch (error) {
+        console.log(error.stack);
+        next(error);
+    }
+});
+
+
 module.exports = mongoose.model("Feedback", FeedbackSchema);
