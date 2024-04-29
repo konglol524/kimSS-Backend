@@ -46,4 +46,4 @@ const options = {
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
 
 // module.exports = { swaggerSpec, swaggerUi };
-module.exports = swaggerUi.setup(swaggerDocs, options);
+module.exports = swaggerUi.setup(swaggerDocs);
