@@ -40,10 +40,10 @@ const swaggerOptions = {
 };
 
 const options = {
-    customCss: '.swagger-ui .topbar { display: none }'
+    customCssUrl: '/swagger-ui.css'
 }
 
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
 
 // module.exports = { swaggerSpec, swaggerUi };
-module.exports = swaggerUi.setup(swaggerDocs);
+module.exports = swaggerUi.setup(swaggerDocs, options);
