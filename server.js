@@ -50,7 +50,7 @@ app.use(mongoSanitize());
 //security header
 app.use(helmet());
 //Prevent XSS attacks
-app.use(xss());
+//app.use(xss());
 //rate limiter
 app.use(limiter);
 //Prevent http param pollutions
