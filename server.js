@@ -12,7 +12,7 @@ const path = require('path');
 const hpp = require("hpp");
 
 //Load env vars
-dotenv.config({ path: "./config/config.env" });
+ dotenv.config({ path: "./config/config.env" });
 
 //connect to database
 connectDB();
