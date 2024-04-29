@@ -39,11 +39,8 @@ const swaggerOptions = {
     apis: ['routes/*.js'],
 };
 
-const options = {
-    customCssUrl: '/swagger-ui.css'
-}
 
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
 
 // module.exports = { swaggerSpec, swaggerUi };
-module.exports = swaggerUi.setup(swaggerDocs, options);
+module.exports = swaggerDocs
