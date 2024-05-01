@@ -53,7 +53,7 @@ app.use(helmet());
 //Prevent XSS attacks
 app.use(xss());
 //rate limiter
-//app.use(limiter);
+app.use(limiter);
 //Prevent http param pollutions
 app.use(hpp());
 
