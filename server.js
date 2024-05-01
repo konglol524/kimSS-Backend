@@ -14,7 +14,7 @@ const swaggerDocs = require("./config/swaggerConfig");
 
 
 //Load env vars
- dotenv.config({ path: "./config/config.env" });
+ dotenv.config();
 
 //connect to database
 connectDB();
@@ -53,7 +53,7 @@ app.use(helmet());
 //Prevent XSS attacks
 app.use(xss());
 //rate limiter
-app.use(limiter);
+//app.use(limiter);
 //Prevent http param pollutions
 app.use(hpp());
 

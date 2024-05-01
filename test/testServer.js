@@ -10,8 +10,6 @@ const {protect} = require("../middleware/auth");
 const app = express();
 const cors = require("cors");
 app.use(cors());
-
-
 app.get("/api/v1/feedbacks/:id", getFeedbacks);
 app.get("/api/v1/auth/me", protect, getMe);
 
